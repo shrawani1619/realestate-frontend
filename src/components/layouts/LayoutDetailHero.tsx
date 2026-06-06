@@ -113,7 +113,7 @@ export default function LayoutDetailHero({
         {(booked > 0 || sold > 0) && (
           <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/60">
             {booked > 0 && <span>{booked} booked</span>}
-            {sold > 0 && <span>{sold} sold</span>}}
+            {sold > 0 && <span>{sold} sold</span>}
           </div>
         )}
 
