@@ -1,0 +1,29 @@
+:root {
+  /* Primary palette */
+  --color-primary-50: #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-500: #22c55e;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534;
+  --color-primary-900: #14532d;
+
+  /* Semantic status colors */
+  --color-status-available: #22c55e;
+  --color-status-booked: #eab308;
+  --color-status-sold: #ef4444;
+  --color-status-pending: #eab308;
+  --color-status-approved: #22c55e;
+  --color-status-rejected: #ef4444;
+
+  /* Layout */
+  --container-max-width: 80rem;
+  --navbar-height: 4rem;
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 0.75rem;
+
+  /* Z-index scale */
+  --z-navbar: 50;
+  --z-modal: 50;
+  --z-dropdown: 50;
+}

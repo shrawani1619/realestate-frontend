@@ -1,0 +1,77 @@
+'use client';
+
+import { Plot } from '@/lib/types';
+import { PLOT_STATUS } from '@/constants/css';
+
+interface PlotPopupProps {
+  plot: Plot;
+  onClose: () => void;
+  onBookNow?: (plot: Plot) => void;
+}
+
+export default function PlotPopup({ plot, onClose, onBookNow }: PlotPopupProps) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-sm rounded-xl bg-white p-6 shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-start justify-between">
+          <div>
+            <h3 className="text-lg font-semibold">Plot {plot.plotNumber}</h3>
+            <span
+              className={`mt-1 inline-block rounded-full px-2.5 py-0.5 text-xs font-medium capitalize ${PLOT_STATUS[plot.status].badge}`}
+            >
+              {plot.status}
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-lg p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </div>
+
+        <dl className="mt-4 space-y-2 text-sm">
+          <div className="flex justify-between">
+            <dt className="text-gray-500">Size</dt>
+            <dd className="font-medium">{plot.size}</dd>
+          </div>
+          <div className="flex justify-between">
+            <dt className="text-gray-500">Price</dt>
+            <dd className="font-medium">₹{plot.price.toLocaleString()}</dd>
+          </div>
+          <div className="flex justify-between">
+            <dt className="text-gray-500">Facing</dt>
+            <dd className="font-medium">{plot.facing || '—'}</dd>
+          </div>
+        </dl>
+
+        {plot.description && (
+          <p className="mt-3 text-sm text-gray-600">{plot.description}</p>
+        )}
+
+        <div className="mt-6 flex gap-3">
+          <button type="button" onClick={onClose} className="btn-secondary flex-1">
+            Close
+          </button>
+          {plot.status === 'available' && onBookNow && (
+            <button
+              type="button"
+              onClick={() => onBookNow(plot)}
+              className="btn-primary flex-1"
+            >
+              Book Now
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
