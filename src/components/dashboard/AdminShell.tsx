@@ -11,10 +11,10 @@ const pageTitles: Record<string, string> = {
   '/dashboard/plots': 'Plots',
   // '/dashboard/bookings': 'Bookings',
   '/dashboard/users': 'Users',
-  '/dashboard/cms': 'CMS',
-  '/dashboard/inquiries': 'Contact Inquiries',
+  // '/dashboard/cms': 'CMS',
+  // '/dashboard/inquiries': 'Contact Inquiries',
   '/dashboard/settings': 'Settings',
-  '/dashboard/profile': 'My Profile',
+  // '/dashboard/profile': 'My Profile',
 };
 
 export default function AdminShell({ children }: { children: React.ReactNode }) {
